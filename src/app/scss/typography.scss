@@ -1,0 +1,6 @@
+@use './variables.scss' as *;
+
+
+h1 {
+  font-size: clamp(1rem, 2vw, 3rem);
+}

@@ -1,0 +1,14 @@
+extends ../../app/pug/layouts/base.pug
+
+append vars
+  - title = "Index"
+  - description = "Описание Index"
+
+append content
+
+    .page-index
+        .container
+            h1 Страница Index
+            +contactsForm()
+            button.btn.secondary(data-modal="modal1") Modal 1
+            button.btn.secondary(data-modal="modal2") Modal 2

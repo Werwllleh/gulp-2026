@@ -1,0 +1,9 @@
+@use '../../app/scss/variables.scss' as *;
+
+// footer
+.footer {
+  padding-block: 2rem;
+  background-color: var(--blue);
+  color: var(--white);
+  font-size: 2rem;
+}

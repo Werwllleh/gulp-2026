@@ -1,0 +1,104 @@
+@use '../../app/scss/variables.scss' as *;
+
+// radio
+.radio {
+    display: flex;
+    align-items: center;
+    gap: 0 .9rem;
+    max-width: max-content;
+
+    &__input {
+        display: none;
+    }
+
+    &__icon {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid #d4d4d4;
+        border-radius: 100%;
+        width: 1.8rem;
+        height: 1.8rem;
+        background-color: var(--white);
+        transition: background-color var(--transition-default), border-color var(--transition-default);
+
+        &::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            margin: auto;
+            border-radius: 100%;
+            width: 0.6rem;
+            height: 0.6rem;
+            background-color: var(--white);
+            opacity: 0;
+            transition: opacity var(--transition-default);
+        }
+
+    }
+
+    &__label {
+        position: relative;
+        font-family: var(--font-family);
+        font-weight: 400;
+        font-size: 1.2rem;
+        line-height: 1.33;
+        color: var(--black);
+        cursor: pointer;
+        user-select: none;
+        transition: color var(--transition-default);
+
+        /*&::before {
+            position: absolute;
+            left: 0;
+            top: 1px;
+            width: 20px;
+            height: 20px;
+            display: block;
+            background-color: #fff;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 14 14' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11.401 2.9996L12.9861 4.58475L5.57126 11.9996L1 7.42844L2.58509 5.8433L5.57126 8.82937L11.401 2.9996Z' fill='white'/%3E%3C/svg%3E");
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: 14px 14px;
+            border: 1px solid rgba(#626A76, .24);
+            border-radius: 20px;
+            content: "";
+            transition: border-color var(--transition-default), background-color var(--transition-default);
+        }*/
+
+        &:hover {
+            color: var(--primary);
+
+            /*&::before {
+                border-color: var(--primary);
+            }*/
+        }
+
+        .radio__input:checked+&,
+        .radio__input:checked+&:hover {
+            &::before {
+                background-color: var(--primary);
+                color: var(--primary);
+            }
+        }
+    }
+
+    &:hover {
+        .radio__icon {
+            border-color: var(--black);
+        }
+    }
+
+    .radio__input:checked + .radio__icon {
+        background-color: var(--black);
+        border-color: var(--black);
+
+        &::before {
+            opacity: 1;
+        }
+    }
+}

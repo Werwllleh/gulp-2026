@@ -1,0 +1,183 @@
+@use './variables.scss' as *;
+@use './mixins.scss' as *;
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    transition: all $transition-default;
+}
+
+a, a:link, a:visited {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+/* Common */
+
+aside, nav, footer, header, section, main {
+    display: block;
+}
+
+ul, ul li {
+    list-style: none;
+}
+
+img {
+    vertical-align: top;
+}
+
+img, svg {
+    max-width: 100%;
+    height: auto;
+}
+
+svg {
+    transition: all $transition-default;
+}
+
+address {
+    font-style: normal;
+}
+
+/* Form */
+
+input, textarea, button, select {
+    font-family: inherit;
+    font-size: inherit;
+    color: inherit;
+    background-color: transparent;
+    outline: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+}
+
+input::-ms-clear {
+    display: none;
+}
+
+button, input[type="submit"] {
+    display: inline-block;
+    box-shadow: none;
+    background-color: transparent;
+    background: none;
+    cursor: pointer;
+    border: none;
+    padding: 0;
+    margin: 0;
+}
+
+input:focus, input:active,
+button:focus, button:active {
+    outline: none;
+}
+
+button::-moz-focus-inner {
+    padding: 0;
+    border: 0;
+}
+
+label {
+    cursor: pointer;
+}
+
+legend {
+    display: block;
+}
+
+html {
+    background-color: $white;
+    overflow-x: hidden;
+    font-size: 10px;
+    -webkit-text-size-adjust: 100%;
+
+    &.block {
+        overflow: hidden;
+    }
+}
+
+body, html {
+    scroll-behavior: smooth;
+}
+
+
+input,
+textarea,
+select {
+    @media (max-width: 767px) {
+        font-size: 1.6rem !important;
+    }
+}
+
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    overflow-x: clip;
+    min-width: 30rem;
+    scroll-behavior: smooth;
+    text-rendering: optimizeSpeed;
+    -webkit-font-smoothing: antialiased;
+    font-family: $font-family;
+}
+
+.page {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+
+    &__container {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+.ppt140 {
+    padding-top: 10rem;
+
+    @include w1280 {
+        padding-top: 13rem;
+    }
+
+    @include w1600 {
+        padding-top: 14rem;
+    }
+}
+
+.spt {
+    margin-top: 8rem;
+
+    @include w1280 {
+        margin-top: 12rem;
+    }
+}
+
+.hide {
+    display: none !important;
+}
+
+.overlay {
+    position: fixed;
+    z-index: 10;
+    inset: 0;
+    background: $black;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity $transition-default, visibility $transition-default;
+
+    &.active {
+        opacity: 0.1;
+        visibility: visible;
+    }
+}
